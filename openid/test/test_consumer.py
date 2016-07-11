@@ -1,4 +1,4 @@
-import urllib.parse
+import six.moves.urllib as urllib
 import time
 import warnings
 import pprint

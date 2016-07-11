@@ -12,8 +12,7 @@ import binascii
 import logging
 
 # import urllib.parse as urlparse
-from urllib.parse import urlencode
-
+from six.moves.urllib.parse import urlencode
 
 xxe_safe_elementtree_modules = [
     'defusedxml.cElementTree',

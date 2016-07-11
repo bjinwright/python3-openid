@@ -7,11 +7,12 @@ __all__ = ['fetch', 'getDefaultFetcher', 'setDefaultFetcher', 'HTTPResponse',
            'HTTPFetcher', 'createHTTPFetcher', 'HTTPFetchingError',
            'HTTPError']
 
-import urllib.request
-import urllib.error
-import urllib.parse
-import http.client
+import six.moves.urllib as urllib
+import six.moves.urllib.request
+import six.moves.urllib.error
+import six.moves.urllib.parse
 
+from six.moves import http_client
 import time
 import io
 import sys
@@ -207,7 +208,7 @@ class Urllib2Fetcher(HTTPFetcher):
 
     # Parameterized for the benefit of testing frameworks, see
     # http://trac.openidenabled.com/trac/ticket/85
-    urlopen = staticmethod(urllib.request.urlopen)
+    urlopen = staticmethod(six.moves.urllib.request.urlopen)
 
     def fetch(self, url, body=None, headers=None):
         if not _allowedURL(url):
@@ -218,12 +219,12 @@ class Urllib2Fetcher(HTTPFetcher):
 
         headers.setdefault(
             'User-Agent',
-            "%s Python-urllib/%s" % (USER_AGENT, urllib.request.__version__))
+            "%s Python-urllib/%s" % (USER_AGENT, 'six-version'))
 
         if isinstance(body, str):
             body = bytes(body, encoding="utf-8")
 
-        req = urllib.request.Request(url, data=body, headers=headers)
+        req = six.moves.urllib.request.Request(url, data=body, headers=headers)
 
         url_resource = None
         try:
@@ -234,7 +235,7 @@ class Urllib2Fetcher(HTTPFetcher):
             with contextlib.closing(why):
                 resp = self._makeResponse(why)
                 return resp
-        except (urllib.error.URLError, http.client.BadStatusLine) as why:
+        except (urllib.error.URLError, http_client.BadStatusLine) as why:
             raise
         except Exception as why:
             raise AssertionError(why)

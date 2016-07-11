@@ -7,7 +7,7 @@
 """
 
 import unittest
-import urllib.parse
+import six.moves.urllib as urllib
 import re
 import types
 

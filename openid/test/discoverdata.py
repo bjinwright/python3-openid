@@ -1,5 +1,5 @@
 """Module to make discovery data test cases available"""
-import urllib.parse
+import six.moves.urllib as urllib
 import os.path
 
 from openid.yadis.discover import DiscoveryResult, DiscoveryFailure

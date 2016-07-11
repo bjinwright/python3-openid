@@ -189,7 +189,7 @@ USING THIS LIBRARY
 
 import copy
 import logging
-from urllib.parse import urlparse, urldefrag, parse_qsl
+from six.moves.urllib.parse import urlparse, urldefrag, parse_qsl
 
 from openid import fetchers
 

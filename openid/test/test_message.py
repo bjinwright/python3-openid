@@ -3,9 +3,7 @@ from openid import message
 from openid import oidutil
 from openid.extensions import sreg
 
-import urllib.request
-import urllib.parse
-import urllib.error
+import six.moves.urllib as urllib
 import unittest
 
 

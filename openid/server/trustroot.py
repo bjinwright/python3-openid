@@ -20,7 +20,7 @@ __all__ = [
 from openid import urinorm
 from openid.yadis import services
 
-from urllib.parse import urlparse, urlunparse
+from six.moves.urllib.parse import urlparse, urlunparse
 import re
 import logging
 

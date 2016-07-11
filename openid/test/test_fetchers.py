@@ -1,8 +1,6 @@
 import warnings
 import unittest
-import urllib.request
-import urllib.error
-import urllib.parse
+import six.moves.urllib as urllib
 
 from openid import fetchers
 
@@ -126,7 +124,8 @@ def run_fetcher_tests(server):
     for f in non_exc_fetchers:
         test_fetcher(f, False, server)
 
-from http.server import BaseHTTPRequestHandler, HTTPServer
+
+from six.moves.BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
 
 class FetcherTestHandler(BaseHTTPRequestHandler):

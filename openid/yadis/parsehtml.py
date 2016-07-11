@@ -1,7 +1,8 @@
 __all__ = ['findHTMLMeta', 'MetaNotFound']
 
-from html.parser import HTMLParser
-import html.entities
+from six.moves.html_parser import HTMLParser
+from six.moves import html_entities
+
 import re
 import sys
 
@@ -44,7 +45,7 @@ def substituteMO(mo):
         codepoint = int(mo.group('dec'))
     else:
         assert mo.lastgroup == 'word'
-        codepoint = html.entities.name2codepoint.get(mo.group('word'))
+        codepoint = html_entities.name2codepoint.get(mo.group('word'))
 
     if codepoint is None:
         return mo.group()

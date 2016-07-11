@@ -2,8 +2,7 @@
 import sys
 import unittest
 import os.path
-from urllib.parse import urlsplit
-
+from six.moves.urllib.parse import urlsplit
 from . import datadriven
 
 from openid import fetchers

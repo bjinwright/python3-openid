@@ -3,7 +3,7 @@
 from base64 import b64decode
 import unittest
 import warnings
-from urllib.parse import urlparse, parse_qsl, parse_qs
+from six.moves.urllib.parse import urlparse, parse_qsl, parse_qs
 
 from openid.server import server
 from openid import association, cryptutil, oidutil

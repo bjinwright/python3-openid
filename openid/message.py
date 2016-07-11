@@ -6,9 +6,8 @@ __all__ = ['Message', 'NamespaceMap', 'no_default', 'registerNamespaceAlias',
 
 import copy
 import warnings
-import urllib.request
-import urllib.error
 
+import six.moves.urllib as urllib
 from openid import oidutil
 from openid import kvform
 try:

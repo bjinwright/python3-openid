@@ -13,7 +13,7 @@ __all__ = [
     'discover',
     ]
 
-import urllib.parse
+import six.moves.urllib as urllib
 import logging
 
 from openid import fetchers, urinorm
